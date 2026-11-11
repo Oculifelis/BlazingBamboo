@@ -14,9 +14,9 @@ import net.paddedshaman.blazingbamboo.block.BBBlocks;
 
 public class BBItems {
     public static final Item BLAZING_BAMBOO_ITEM = registerItem("blazing_bamboo_item",
-            new BlockItem(BBBlocks.BLAZING_BAMBOO, new Item.Properties().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ITEM, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_item"))).fireResistant()));
+            new BlockItem(BBBlocks.BLAZING_BAMBOO, new Item.Properties().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ITEM, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_item"))).fireResistant().cookingFuel(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.CONTEXT_INT_PROVIDER, BlazingBamboo.id("cooking/bamboo")))));
     public static final Item BLAZING_BAMBOO_BUNDLE = registerItem("blazing_bamboo_bundle",
-            new BlockItem(BBBlocks.BLAZING_BAMBOO_BUNDLE, new Item.Properties().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ITEM, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_bundle"))).fireResistant()));
+            new BlockItem(BBBlocks.BLAZING_BAMBOO_BUNDLE, new Item.Properties().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ITEM, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_bundle"))).fireResistant().cookingFuel(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.CONTEXT_INT_PROVIDER, BlazingBamboo.id("cooking/bundle")))));
     public static final Item BLAZING_BAMBOO_SIGN = registerItem("blazing_bamboo_sign",
             new SignItem(BBBlocks.BLAZING_BAMBOO_SIGN, BBBlocks.BLAZING_BAMBOO_WALL_SIGN, new Item.Properties().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ITEM, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_sign"))).fireResistant().stacksTo(16)));
     public static final Item BLAZING_BAMBOO_HANGING_SIGN = registerItem("blazing_bamboo_hanging_sign",
