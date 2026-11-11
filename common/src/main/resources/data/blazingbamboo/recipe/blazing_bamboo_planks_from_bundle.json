@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "B",
+    "B"
+  ],
+  "key": {
+    "B": {
+      "item": "blazingbamboo:blazing_bamboo_bundle",
+      "data": 0
+    }
+  },
+  "result": {
+    "count": 4,
+    "id": "blazingbamboo:blazing_bamboo_planks"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "blazingbamboo",
+  "version": "${version}",
+  "name": "Blazing Bamboo (Unofficial)",
+  "description": "Unofficial port of Blazing Bamboo by PaddedShaman.",
+  "authors": [
+    "PaddedShaman",
+    "Oculifelis"
+  ],
+  "license": "MIT",
+  "icon": "assets/blazingbamboo/icon.png",
+  "environment": "*",
+  "contact": {
+    "sources": "https://github.com/Oculifelis/BlazingBamboo"
+  },
+  "entrypoints": {
+    "main": [
+      "net.paddedshaman.blazingbamboo.fabric.BlazingBambooFabric"
+    ],
+    "client": [
+      "net.paddedshaman.blazingbamboo.fabric.BlazingBambooFabricClient"
+    ]
+  },
+  "mixins": [
+    "blazingbamboo.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}",
+    "fabric-api": "*"
+  },
+  "accessWidener": "blazingbamboo.fabric.accesswidener"
+}

@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="${neoforge_loader_version_range}"
+license="MIT"
+[[mods]]
+modId="blazingbamboo"
+version="${version}"
+displayName="Blazing Bamboo (Unofficial)"
+authors="PaddedShaman, Oculifelis"
+description='''Unofficial port of PaddedShaman's Blazing Bamboo. Fiery bamboo, lava rafts and Nether building blocks.'''
+[[mixins]]
+config="blazingbamboo.mixins.json"
+[[dependencies.blazingbamboo]]
+modId="neoforge"
+type="required"
+versionRange="[${neoforge_version},)"
+[[dependencies.blazingbamboo]]
+modId="minecraft"
+type="required"
+versionRange="${minecraft_version_range}"
+
+[[accessTransformers]]
+file="META-INF/accesstransformer.cfg"

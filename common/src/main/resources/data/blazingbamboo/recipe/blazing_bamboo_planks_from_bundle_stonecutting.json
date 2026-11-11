@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": "blazingbamboo:blazing_bamboo_bundle",
+  "result": {
+    "id": "blazingbamboo:blazing_bamboo_planks"
+  }
+}
