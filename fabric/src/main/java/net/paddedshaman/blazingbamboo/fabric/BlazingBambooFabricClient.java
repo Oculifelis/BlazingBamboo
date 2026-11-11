@@ -12,7 +12,6 @@ import net.paddedshaman.blazingbamboo.entity.BBEntities;
 import net.paddedshaman.blazingbamboo.client.BBClient;
 public class BlazingBambooFabricClient implements ClientModInitializer {
  public void onInitializeClient() {
-  BBClient.registerSignSprites();
   ModelLayerRegistry.registerModelLayer(BBClient.RAFT,RaftModel::createRaftModel);
   ModelLayerRegistry.registerModelLayer(BBClient.CHEST_RAFT,RaftModel::createChestRaftModel);
   EntityRendererRegistry.register(BBEntities.BB_RAFT,c->new RaftRenderer(c,BBClient.RAFT));
