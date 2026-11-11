@@ -16,7 +16,7 @@ import net.paddedshaman.blazingbamboo.BlazingBamboo;
 import net.paddedshaman.blazingbamboo.block.custom.*;
 
 public class BBBlocks {
-    public static final WoodType BLAZING_BAMBOO_TYPE = net.paddedshaman.blazingbamboo.mixin.WoodTypeAccess.register(new WoodType(BlazingBamboo.MOD_ID + ":blazing_bamboo", BlockSetType.BAMBOO));
+    public static final WoodType BLAZING_BAMBOO_TYPE = BlazingBamboo.woodTypeRegistrar.apply(new WoodType(BlazingBamboo.MOD_ID + ":blazing_bamboo", BlockSetType.BAMBOO));
 
     public static final Block BLAZING_BAMBOO = Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo"),
             new BlazingBambooBlock(BlockBehaviour.Properties.of().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo"))).mapColor(MapColor.PLANT).forceSolidOn().randomTicks().instabreak()
