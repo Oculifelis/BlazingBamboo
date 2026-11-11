@@ -17,7 +17,7 @@ public class BBItems {
     public static final Item BLAZING_BAMBOO_BUNDLE = registerItem("blazing_bamboo_bundle",
             new BlockItem(BBBlocks.BLAZING_BAMBOO_BUNDLE, new Item.Properties().fireResistant()));
     public static final Item BLAZING_BAMBOO_SIGN = registerItem("blazing_bamboo_sign",
-            new SignItem(BBBlocks.BLAZING_BAMBOO_SIGN, BBBlocks.BLAZING_BAMBOO_WALL_SIGN, new Item.Properties().fireResistant().stacksTo(16)));
+            new SignItem(new Item.Properties().fireResistant().stacksTo(16), BBBlocks.BLAZING_BAMBOO_SIGN, BBBlocks.BLAZING_BAMBOO_WALL_SIGN));
     public static final Item BLAZING_BAMBOO_HANGING_SIGN = registerItem("blazing_bamboo_hanging_sign",
             new HangingSignItem(BBBlocks.BLAZING_BAMBOO_HANGING_SIGN, BBBlocks.BLAZING_BAMBOO_WALL_HANGING_SIGN,
                     new Item.Properties().fireResistant().stacksTo(16)));
