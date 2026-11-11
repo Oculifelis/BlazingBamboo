@@ -32,6 +32,20 @@ public final class PortChecks {
   check(!new ItemStack(BBBlocks.BLAZING_BAMBOO_PLANKS).has(net.minecraft.core.component.DataComponents.COOKING_FUEL),"planks have no cooking fuel");
   check(fuel(level,Blocks.BLAST_FURNACE,new ItemStack(BBItems.BLAZING_BAMBOO_ITEM))==400,"blast furnace fuel 400");
   check(fuel(level,Blocks.SMOKER,new ItemStack(BBItems.BLAZING_BAMBOO_BUNDLE))==4000,"smoker bundle fuel 4000");
+
+  var actor=new net.minecraft.world.entity.player.Player(level,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"BambooCheck")) {
+   @Override public net.minecraft.world.level.GameType gameMode(){return net.minecraft.world.level.GameType.SURVIVAL;}
+  };
+  var axe=new ItemStack(Items.DIAMOND_AXE);actor.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,axe);
+  BlockPos stripPos=new BlockPos(30,100,0);
+  for(var axis:net.minecraft.core.Direction.Axis.values()) {
+   level.setBlockAndUpdate(stripPos,BBBlocks.BLAZING_BAMBOO_BUNDLE.defaultBlockState().setValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS,axis));
+   var hit=new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(stripPos),net.minecraft.core.Direction.UP,stripPos,false);
+   var context=new net.minecraft.world.item.context.UseOnContext(actor,net.minecraft.world.InteractionHand.MAIN_HAND,hit);
+   axe.getItem().useOn(context);
+   check(level.getBlockState(stripPos).is(BBBlocks.STRIPPED_BLAZING_BAMBOO_BUNDLE)&&level.getBlockState(stripPos).getValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS)==axis,"axe strips bundle preserving "+axis);
+  }
+  check(axe.getDamageValue()==3,"axe stripping consumes one durability per use");
   BlockPos base=new BlockPos(0,100,0);level.setBlockAndUpdate(base,Blocks.CRIMSON_NYLIUM.defaultBlockState());
   level.setBlockAndUpdate(base.above(),BBBlocks.BLAZING_BAMBOO_SAPLING.defaultBlockState());
   level.setBlockAndUpdate(base.east(),Blocks.WATER.defaultBlockState());
