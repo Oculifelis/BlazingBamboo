@@ -42,8 +42,13 @@ public final class ThaumaturgeChecks {
   level.setBlockAndUpdate(pos,block.defaultBlockState());
   var crucible=level.getBlockEntity(pos);PortChecks.check(crucible!=null,"crucible placed");
   var fake=Class.forName("net.neoforged.neoforge.common.util.FakePlayerFactory").getMethod("getMinecraft",ServerLevel.class).invoke(null,level);
-  Method dissolve=crucible.getClass().getDeclaredMethod("dissolve",ServerLevel.class,ItemStack.class,Player.class);dissolve.setAccessible(true);
-  PortChecks.check(Boolean.TRUE.equals(dissolve.invoke(crucible,level,new ItemStack(BBItems.BLAZING_BAMBOO_ITEM),fake)),"crucible dissolves bamboo");
+  var fluidClass=Class.forName("net.neoforged.neoforge.fluids.FluidStack");
+  var water=fluidClass.getConstructor(net.minecraft.world.level.material.Fluid.class,int.class).newInstance(net.minecraft.world.level.material.Fluids.WATER,1000);
+  var tank=crucible.getClass().getMethod("getTank").invoke(crucible);tank.getClass().getMethod("setFluid",fluidClass).invoke(tank,water);
+  var boiling=crucible.getClass().getDeclaredField("BOIL_HEAT");boiling.setAccessible(true);
+  var heat=crucible.getClass().getDeclaredField("heat");heat.setAccessible(true);heat.setShort(crucible,(short)boiling.getInt(null));
+  var remainder=(ItemStack)crucible.getClass().getMethod("attemptSmelt",ItemStack.class,Player.class).invoke(crucible,new ItemStack(BBItems.BLAZING_BAMBOO_ITEM),fake);
+  PortChecks.check(remainder==null||remainder.isEmpty(),"crucible dissolves bamboo");
   var gained=amounts(crucible.getClass().getMethod("getAspects").invoke(crucible));
   PortChecks.check(amount(gained,"ignis")==4&&amount(gained,"herba")==1,"crucible receives exact bamboo aspects");
   System.out.println("BBQA THAUMATURGE ASPECTS CRUCIBLE PASS");

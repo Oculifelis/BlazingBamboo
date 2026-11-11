@@ -24,6 +24,10 @@ public final class PortChecks {
   check(net.paddedshaman.blazingbamboo.qa.LegacyFuel.duration(new ItemStack(BBItems.BLAZING_BAMBOO_BUNDLE),net.minecraft.world.item.crafting.RecipeType.SMELTING)==8000,"bundle fuel 8000");
   check(net.paddedshaman.blazingbamboo.qa.LegacyFuel.duration(new ItemStack(BBBlocks.BLAZING_BAMBOO_PLANKS),net.minecraft.world.item.crafting.RecipeType.SMELTING)==0,"planks not fuel");
   check(net.paddedshaman.blazingbamboo.qa.LegacyFuel.duration(new ItemStack(BBBlocks.BLAZING_BAMBOO_SLAB),net.minecraft.world.item.crafting.RecipeType.SMELTING)==0,"slabs not fuel");
+  var featureKey=net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.PLACED_FEATURE,net.paddedshaman.blazingbamboo.BlazingBamboo.id("blazing_bamboo_placed"));
+  var crimson=level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.BIOME).getHolderOrThrow(net.minecraft.world.level.biome.Biomes.CRIMSON_FOREST).value();
+  boolean hasFeature=false;for(var step:crimson.getGenerationSettings().features())for(var placed:step)if(placed.is(featureKey))hasFeature=true;
+  check(hasFeature,"bamboo feature present in crimson forest");
   BlockPos base=new BlockPos(0,100,0);level.setBlockAndUpdate(base,Blocks.CRIMSON_NYLIUM.defaultBlockState());
   level.setBlockAndUpdate(base.above(),BBBlocks.BLAZING_BAMBOO_SAPLING.defaultBlockState());
   level.setBlockAndUpdate(base.east(),Blocks.WATER.defaultBlockState());
