@@ -5,10 +5,7 @@
     "B"
   ],
   "key": {
-    "B": {
-      "item": "blazingbamboo:blazing_bamboo_item",
-      "data": 0
-    }
+    "B": "blazingbamboo:blazing_bamboo_item"
   },
   "result": {
     "count": 1,

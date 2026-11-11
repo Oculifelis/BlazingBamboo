@@ -1,0 +1,9 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="bbqa"
+version="1.0.0"
+displayName="Bamboo Port Checks"
+[[mixins]]
+config="bbqa.mixins.json"

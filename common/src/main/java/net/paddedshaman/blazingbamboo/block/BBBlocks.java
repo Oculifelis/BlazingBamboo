@@ -63,10 +63,10 @@ public class BBBlocks {
             new StairBlock(BBBlocks.BLAZING_BAMBOO_PLANKS.defaultBlockState(),
                     BlockBehaviour.Properties.ofFullCopy(BBBlocks.BLAZING_BAMBOO_PLANKS).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_mosaic_stairs")))));
     public static final Block BLAZING_BAMBOO_BUTTON = registerBlock("blazing_bamboo_button",
-            new ButtonBlock(BlockSetType.BAMBOO, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_BUTTON).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_button"))).strength(0.5F, 6.0F)
+            new BBButtonBlock(BlockSetType.BAMBOO, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_BUTTON).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_button"))).strength(0.5F, 6.0F)
                     .sound(SoundType.BAMBOO_WOOD).noCollision()));
     public static final Block BLAZING_BAMBOO_PRESSURE_PLATE = registerBlock("blazing_bamboo_pressure_plate",
-            new PressurePlateBlock(BlockSetType.BAMBOO, BlockBehaviour.Properties.of().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_pressure_plate"))).mapColor(MapColor.COLOR_YELLOW)
+            new BBPressurePlateBlock(BlockSetType.BAMBOO, BlockBehaviour.Properties.of().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_pressure_plate"))).mapColor(MapColor.COLOR_YELLOW)
                     .forceSolidOn().instrument(NoteBlockInstrument.BASS).sound(SoundType.BAMBOO_WOOD).noCollision()
                     .strength(0.5F, 6.0F).pushReaction(PushReaction.DESTROY)));
     public static final Block BLAZING_BAMBOO_FENCE = registerBlock("blazing_bamboo_fence",
@@ -102,9 +102,9 @@ public class BBBlocks {
             new StairBlock(BBBlocks.BLAZING_STONE.defaultBlockState(),
                     BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_stone_stairs"))).sound(SoundType.STONE)));
     public static final Block BLAZING_STONE_BUTTON = registerBlock("blazing_stone_button",
-            new ButtonBlock(BlockSetType.STONE, 20, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BUTTON).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_stone_button"))).sound(SoundType.STONE).noCollision()));
+            new BBButtonBlock(BlockSetType.STONE, 20, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BUTTON).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_stone_button"))).sound(SoundType.STONE).noCollision()));
     public static final Block BLAZING_STONE_PRESSURE_PLATE = registerBlock("blazing_stone_pressure_plate",
-            new PressurePlateBlock(BlockSetType.STONE, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_stone_pressure_plate"))).sound(SoundType.STONE).noCollision()));
+            new BBPressurePlateBlock(BlockSetType.STONE, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_stone_pressure_plate"))).sound(SoundType.STONE).noCollision()));
 
     public static final Block BLAZING_BRICKS = registerBlock("blazing_bricks",
             new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bricks"))).sound(SoundType.NETHER_BRICKS)));

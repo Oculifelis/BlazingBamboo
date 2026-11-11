@@ -54,3 +54,16 @@ sourceSets.configureEach {
         }
     }
 }
+
+sourceSets {
+    qa {
+        java.srcDir rootProject.file('qa/src/main/java')
+        resources.srcDir rootProject.file('qa/src/main/resources')
+        compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
+    }
+}
+tasks.register('qaJar', Jar) {
+    dependsOn tasks.named('qaClasses')
+    archiveBaseName = 'bamboo-port-checks'
+    from sourceSets.qa.output
+}

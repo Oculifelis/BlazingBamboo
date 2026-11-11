@@ -16,7 +16,7 @@ public class BlazingBambooFabricClient implements ClientModInitializer {
   ModelLayerRegistry.registerModelLayer(BBClient.CHEST_RAFT,RaftModel::createChestRaftModel);
   EntityRendererRegistry.register(BBEntities.BB_RAFT,c->new RaftRenderer(c,BBClient.RAFT));
   EntityRendererRegistry.register(BBEntities.BB_CHEST_RAFT,c->new RaftRenderer(c,BBClient.CHEST_RAFT));
-  BlockEntityRendererRegistry.register(BBBlockEntities.MOD_SIGN,StandingSignRenderer::new);
-  BlockEntityRendererRegistry.register(BBBlockEntities.MOD_HANGING_SIGN,HangingSignRenderer::new);
+  BlockEntityRendererRegistry.register((net.minecraft.world.level.block.entity.BlockEntityType<net.minecraft.world.level.block.entity.SignBlockEntity>)(net.minecraft.world.level.block.entity.BlockEntityType<?>)BBBlockEntities.MOD_SIGN,StandingSignRenderer::new);
+  BlockEntityRendererRegistry.register((net.minecraft.world.level.block.entity.BlockEntityType<net.minecraft.world.level.block.entity.SignBlockEntity>)(net.minecraft.world.level.block.entity.BlockEntityType<?>)BBBlockEntities.MOD_HANGING_SIGN,HangingSignRenderer::new);
  }
 }

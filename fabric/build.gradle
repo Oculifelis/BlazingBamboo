@@ -47,3 +47,19 @@ sourceSets.configureEach {
         }
     }
 }
+
+tasks.register('exportTestLaunch') {
+    def gameRuns = ['client','server'].collect { tasks.named('run' + it.capitalize()).get() }
+    dependsOn gameRuns.collectMany { it.taskDependencies.getDependencies(it) }
+    doLast {
+        gameRuns.each { run ->
+            def side = run.name.substring(3).toLowerCase()
+            def cp = (run.hasProperty('classpathProvider') ? run.classpathProvider : run.classpath)
+            def jvm = run.jvmArgs + run.jvmArgumentProviders.collectMany { it.asArguments() as List }
+            def args = run.args + run.argumentProviders.collectMany { it.asArguments() as List }
+            def out = [classpath: cp.files.findAll { it.isFile() && it.name.endsWith('.jar') }.collect { it.absolutePath },
+                jvm: jvm, args: args, main: run.mainClass.get(), environment: (run.hasProperty('environmentProperty') ? run.environmentProperty.get() : [:])]
+            file("${buildDir}/test-${side}.json").text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(out))
+        }
+    }
+}

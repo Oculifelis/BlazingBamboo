@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "bbqa",
+  "version": "1.0.0",
+  "name": "Bamboo Port Checks",
+  "environment": "*",
+  "mixins": [
+    "bbqa.mixins.json"
+  ]
+}

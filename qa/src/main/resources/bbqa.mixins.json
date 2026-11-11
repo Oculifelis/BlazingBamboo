@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.paddedshaman.blazingbamboo.qa",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ServerCheckMixin"
+  ],
+  "client": [
+    "ClientCheckMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

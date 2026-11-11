@@ -6,6 +6,7 @@ modId="blazingbamboo"
 version="${version}"
 displayName="Blazing Bamboo (Unofficial)"
 authors="PaddedShaman, Oculifelis"
+logoFile="assets/blazingbamboo/icon.png"
 description='''Unofficial port of PaddedShaman's Blazing Bamboo. Fiery bamboo, lava rafts and Nether building blocks.'''
 [[mixins]]
 config="blazingbamboo.mixins.json"
