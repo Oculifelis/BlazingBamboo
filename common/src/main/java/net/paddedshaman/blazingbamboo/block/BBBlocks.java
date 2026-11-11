@@ -21,19 +21,19 @@ public class BBBlocks {
     public static final Block BLAZING_BAMBOO = Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo"),
             new BlazingBambooBlock(BlockBehaviour.Properties.of().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo"))).mapColor(MapColor.PLANT).forceSolidOn().randomTicks().instabreak()
                     .strength(1.0F, 6.0F).sound(SoundType.BAMBOO).lightLevel(pLightEmission -> 8)
-                    .noOcclusion().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+                    .noOcclusion().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.POPPED)));
     public static final Block DEAD_BAMBOO = Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "dead_bamboo"),
             new DeadBambooBlock(BlockBehaviour.Properties.of().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "dead_bamboo"))).mapColor(MapColor.COLOR_GRAY).forceSolidOn().instabreak()
                     .strength(0.0F, 6.0F).sound(SoundType.HANGING_ROOTS)
-                    .noOcclusion().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+                    .noOcclusion().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.POPPED)));
     public static final Block BLAZING_BAMBOO_SAPLING = Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_sapling"),
             new BlazingBambooSapling(BlockBehaviour.Properties.of().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_sapling"))).mapColor(MapColor.WOOD).forceSolidOn().randomTicks().instabreak().noCollision()
                     .strength(0.0F, 6.0F).sound(SoundType.BAMBOO_SAPLING).lightLevel(pLightEmission -> 5)
-                    .noOcclusion().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+                    .noOcclusion().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.POPPED)));
     public static final Block DEAD_BAMBOO_SAPLING = Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "dead_bamboo_sapling"),
             new DeadBambooSapling(BlockBehaviour.Properties.of().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "dead_bamboo_sapling"))).mapColor(MapColor.COLOR_GRAY).forceSolidOn().instabreak().noCollision()
                     .strength(0.0F, 6.0F).sound(SoundType.HANGING_ROOTS)
-                    .noOcclusion().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+                    .noOcclusion().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.POPPED)));
     
     public static final Block POTTED_BLAZING_BAMBOO = Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "potted_blazing_bamboo"),
             new BlazingFlowerPotBlock(BBBlocks.BLAZING_BAMBOO, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_BAMBOO).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "potted_blazing_bamboo"))).strength(0.0F, 6.0F)
@@ -68,14 +68,14 @@ public class BBBlocks {
     public static final Block BLAZING_BAMBOO_PRESSURE_PLATE = registerBlock("blazing_bamboo_pressure_plate",
             new BBPressurePlateBlock(BlockSetType.BAMBOO, BlockBehaviour.Properties.of().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_pressure_plate"))).mapColor(MapColor.COLOR_YELLOW)
                     .forceSolidOn().instrument(NoteBlockInstrument.BASS).sound(SoundType.BAMBOO_WOOD).noCollision()
-                    .strength(0.5F, 6.0F).pushReaction(PushReaction.DESTROY)));
+                    .strength(0.5F, 6.0F).pushReaction(PushReaction.POPPED)));
     public static final Block BLAZING_BAMBOO_FENCE = registerBlock("blazing_bamboo_fence",
             new FenceBlock(BlockBehaviour.Properties.ofFullCopy(BBBlocks.BLAZING_BAMBOO_PLANKS).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_fence"))).forceSolidOn()));
     public static final Block BLAZING_BAMBOO_FENCE_GATE = registerBlock("blazing_bamboo_fence_gate",
             new FenceGateBlock(BLAZING_BAMBOO_TYPE, BlockBehaviour.Properties.ofFullCopy(BBBlocks.BLAZING_BAMBOO_PLANKS).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_fence_gate")))));
     public static final Block BLAZING_BAMBOO_DOOR = registerBlock("blazing_bamboo_door",
             new DoorBlock(BlockSetType.BAMBOO, BlockBehaviour.Properties.of().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_door"))).mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.BASS)
-                    .strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.DESTROY)));
+                    .strength(3.0F, 6.0F).noOcclusion().pushReaction(PushReaction.POPPED)));
     public static final Block BLAZING_BAMBOO_TRAPDOOR = registerBlock("blazing_bamboo_trapdoor",
             new TrapDoorBlock(BlockSetType.BAMBOO, BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_TRAPDOOR).setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.BLOCK, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_trapdoor"))).sound(SoundType.BAMBOO_WOOD)
                     .strength(3.0F, 6.0F)));

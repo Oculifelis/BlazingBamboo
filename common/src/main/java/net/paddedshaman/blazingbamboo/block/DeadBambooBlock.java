@@ -39,5 +39,5 @@ public class DeadBambooBlock extends BlazingBambooBlock {
     @Override
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {}
     @Override
-    public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState) { return false; }
+    public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, net.minecraft.world.level.block.BonemealSource source) { return false; }
 }

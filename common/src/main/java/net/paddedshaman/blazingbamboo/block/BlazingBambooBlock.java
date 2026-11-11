@@ -195,13 +195,13 @@ public class BlazingBambooBlock extends BambooStalkBlock {
         return i;
     }
 
-    public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState) {
+    public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, net.minecraft.world.level.block.BonemealSource source) {
         int i = this.getHeightAboveUpToMax(pLevel, pPos);
         int j = this.getHeightBelowUpToMax(pLevel, pPos);
         return i + j + 1 < MAX_HEIGHT && pLevel.getBlockState(pPos.above(i)).getValue(STAGE) != 1;
     }
 
-    public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
+    public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState, net.minecraft.world.level.block.BonemealSource source) {
         int i = this.getHeightAboveUpToMax(pLevel, pPos);
         int j = this.getHeightBelowUpToMax(pLevel, pPos);
         int k = i + j + 1;

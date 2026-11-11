@@ -15,6 +15,6 @@ public final class BlazingBamboo {
  public static java.util.function.UnaryOperator<net.minecraft.world.level.block.state.properties.WoodType> woodTypeRegistrar = net.paddedshaman.blazingbamboo.mixin.WoodTypeAccess::register;
  public static void initialize() {
   BBBlocks.registerBlocks(); BBItems.registerItems(); BBBlockEntities.registerBlockEntities(); BBEntities.registerEntities(); BBCreativeModeTabs.registerCreativeModeTabs();
-  Registry.register(BuiltInRegistries.FEATURE,id("blazing_bamboo"),new BlazingBambooFeature(BambooPatchConfiguration.CODEC));
+  Registry.register(BuiltInRegistries.FEATURE_TYPE,id("blazing_bamboo"),BlazingBambooFeature.CODEC);
  }
 }

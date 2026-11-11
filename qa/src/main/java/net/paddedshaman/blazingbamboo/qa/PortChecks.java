@@ -27,7 +27,7 @@ public final class PortChecks {
   var crimson=level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.BIOME).getOrThrow(net.minecraft.world.level.biome.Biomes.CRIMSON_FOREST).value();
   boolean hasFeature=false;for(var step:crimson.getGenerationSettings().features())for(var placed:step)if(placed.is(featureKey))hasFeature=true;
   check(hasFeature,"bamboo feature present in crimson forest");
-  check(level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.CONFIGURED_FEATURE).getOrThrow(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.CONFIGURED_FEATURE,net.paddedshaman.blazingbamboo.BlazingBamboo.id("blazing_bamboo")))!=null,"bamboo configuration loads");
+  check(level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.FEATURE).getOrThrow(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.FEATURE,net.paddedshaman.blazingbamboo.BlazingBamboo.id("blazing_bamboo")))!=null,"bamboo configuration loads");
   check(new ItemStack(BBItems.BLAZING_BAMBOO_ITEM).has(net.minecraft.core.component.DataComponents.COOKING_FUEL),"bamboo cooking component");
   check(!new ItemStack(BBBlocks.BLAZING_BAMBOO_PLANKS).has(net.minecraft.core.component.DataComponents.COOKING_FUEL),"planks have no cooking fuel");
   check(fuel(level,Blocks.BLAST_FURNACE,new ItemStack(BBItems.BLAZING_BAMBOO_ITEM))==400,"blast furnace fuel 400");
@@ -41,7 +41,7 @@ public final class PortChecks {
   level.setBlockAndUpdate(base.above(2),BBBlocks.BLAZING_BAMBOO.defaultBlockState());
   ((BlazingBambooBlock)BBBlocks.BLAZING_BAMBOO).randomTick(level.getBlockState(base.above()),level,base.above(),level.getRandom());
   check(level.getBlockState(base.above()).is(BBBlocks.DEAD_BAMBOO)&&level.getBlockState(base.above(2)).is(BBBlocks.DEAD_BAMBOO),"whole stalk extinguishes");
-  check(!((BlazingBambooBlock)BBBlocks.DEAD_BAMBOO).isValidBonemealTarget(level,base.above(),level.getBlockState(base.above())),"dead bamboo cannot grow");
+  check(!((BlazingBambooBlock)BBBlocks.DEAD_BAMBOO).isValidBonemealTarget(level,base.above(),level.getBlockState(base.above()),net.minecraft.world.level.block.BonemealSource.INTERACTION),"dead bamboo cannot grow");
   var raft=BBEntities.BB_RAFT.create(level,EntitySpawnReason.COMMAND);var chest=BBEntities.BB_CHEST_RAFT.create(level,EntitySpawnReason.COMMAND);
   check(raft!=null&&raft.fireImmune()&&chest!=null&&chest.fireImmune(),"both rafts create and resist fire");
   raft.setPos(3,101,0);level.addFreshEntity(raft);chest.setPos(6,101,0);level.addFreshEntity(chest);
