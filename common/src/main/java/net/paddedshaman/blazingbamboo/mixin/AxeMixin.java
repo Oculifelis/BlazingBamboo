@@ -20,7 +20,7 @@ import java.util.ArrayList;
   if(tool==null||!tool.is(BlockTransformers.AXE)||!state.is(BBBlocks.BLAZING_BAMBOO_BUNDLE))return original;
   var stripped=BBBlocks.STRIPPED_BLAZING_BAMBOO_BUNDLE.defaultBlockState().setValue(RotatedPillarBlock.AXIS,state.getValue(RotatedPillarBlock.AXIS));
   var result=new ArrayList<BlockTransformer.BlockTransformData>(original.size()+1);
-  result.add(BlockTransformer.BlockTransformData.builder(BlockStateProvider.simple(stripped)).sound(SoundEvents.AXE_STRIP).itemDamagePerUse(1).build());
+  result.add(BlockTransformer.BlockTransformData.builder(BlockStateProvider.of(stripped)).sound(SoundEvents.AXE_STRIP).itemDamagePerUse(1).build());
   result.addAll(original);return result;
  }
 }
