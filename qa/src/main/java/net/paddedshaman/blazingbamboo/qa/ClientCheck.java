@@ -15,11 +15,11 @@ public final class ClientCheck {
    mc.options.pauseOnLostFocus=false;mc.options.getSoundSourceOptionInstance(SoundSource.MASTER).set(0.0);
    mc.options.framerateLimit().set(20);mc.options.renderDistance().set(3);mc.options.simulationDistance().set(5);
    if(mc.level==null || mc.player==null) {
-    if(!creating && mc.getOverlay()==null && mc.screen instanceof TitleScreen title) {
+    if(!creating && mc.gui.overlay()==null && mc.gui.screen() instanceof TitleScreen title) {
      creating=true;
      LevelSettings settings=new LevelSettings("bbqa",GameType.CREATIVE,LevelSettings.DifficultySettings.DEFAULT,true,WorldDataConfiguration.DEFAULT);
-     mc.createWorldOpenFlows().createFreshLevel("bbqa",settings,new WorldOptions(1030015L,false,false),WorldPresets::createFlatWorldDimensions,title);
-    } else if(!creating && mc.getOverlay()==null && ++idle>200)mc.setScreen(new TitleScreen());
+     mc.createWorldOpenFlows().createFreshLevel("bbqa",settings,new WorldOptions(1030015L,false,false),WorldPresets::createTestWorldDimensions,title);
+    } else if(!creating && mc.gui.overlay()==null && ++idle>200)mc.gui.setScreen(new TitleScreen());
     return;
    }
    if(++ticks==40) {
