@@ -23,6 +23,11 @@ public final class ClientCheck {
     return;
    }
    if(++ticks==40) {
+    for(var item:net.minecraft.core.registries.BuiltInRegistries.ITEM)if(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item).getNamespace().equals("blazingbamboo")) {
+     String name=new net.minecraft.world.item.ItemStack(item).getHoverName().getString();
+     if(name.startsWith("item.blazingbamboo.")||name.startsWith("block.blazingbamboo."))throw new AssertionError("Untranslated item: "+name);
+    }
+    System.out.println("BBQA CLIENT NAMES PASS");
     mc.getSingleplayerServer().execute(()->{try {PortChecks.run(mc.getSingleplayerServer());System.out.println("BBQA CLIENT WORLD PASS");}catch(Throwable t){System.out.println("BBQA CLIENT FAIL");t.printStackTrace();}});
    }
    if(ticks>120) {done=true;mc.stop();}
