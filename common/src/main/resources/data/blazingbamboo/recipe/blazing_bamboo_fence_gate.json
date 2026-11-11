@@ -4,10 +4,16 @@
   "group": "wooden_custom_fence_gate",
   "key": {
     "#": [
-      "minecraft:stick",
-      "minecraft:blaze_rod"
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "minecraft:blaze_rod"
+      }
     ],
-    "W": "blazingbamboo:blazing_bamboo_planks"
+    "W": {
+      "item": "blazingbamboo:blazing_bamboo_planks"
+    }
   },
   "pattern": [
     "#W#",

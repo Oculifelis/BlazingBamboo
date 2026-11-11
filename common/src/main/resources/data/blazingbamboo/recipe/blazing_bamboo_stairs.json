@@ -3,7 +3,9 @@
   "category": "building",
   "group": "wooden_stairs",
   "key": {
-    "#": "blazingbamboo:blazing_bamboo_planks"
+    "#": {
+      "item": "blazingbamboo:blazing_bamboo_planks"
+    }
   },
   "pattern": [
     "#  ",

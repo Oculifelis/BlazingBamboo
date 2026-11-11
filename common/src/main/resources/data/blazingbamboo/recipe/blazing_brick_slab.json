@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "blazingbamboo:blazing_bricks"
+    "#": {
+      "item": "blazingbamboo:blazing_bricks"
+    }
   },
   "pattern": [
     "###"

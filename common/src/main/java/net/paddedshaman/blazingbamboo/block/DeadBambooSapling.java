@@ -21,10 +21,10 @@ public class DeadBambooSapling extends BlazingBambooSapling {
     }
 
     @Override
-    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {}
+    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {}
 
     @Override
-    public BlockState updateShape(BlockState pState, LevelReader pLevel, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pCurrentPos, Direction pFacing, BlockPos pFacingPos, BlockState pFacingState, RandomSource random) {
+    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         if (!pState.canSurvive(pLevel, pCurrentPos))
             return Blocks.AIR.defaultBlockState();
         return this.defaultBlockState();
@@ -32,7 +32,7 @@ public class DeadBambooSapling extends BlazingBambooSapling {
 
     @Override
     @NotNull
-    public ItemStack getCloneItemStack(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean includeData) {
+    public ItemStack getCloneItemStack(LevelReader pLevel, BlockPos pPos, BlockState pState) {
         return new ItemStack(Items.GUNPOWDER);
     }
 

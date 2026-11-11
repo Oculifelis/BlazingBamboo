@@ -58,26 +58,26 @@ public class BlazingBambooBlock extends BambooStalkBlock {
         return pLevel.getBlockState(pPos.below()).is(BBTags.Blocks.BLAZING_BAMBOO_PLANTABLE_ON) || pLevel.getBlockState(pPos.below()).is(BBBlocks.DEAD_BAMBOO);
     }
 
-    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
         if (pEntity instanceof LivingEntity) {
-            if (pLevel instanceof ServerLevel server) pEntity.hurtServer(server, new net.minecraft.world.damagesource.DamageSource(pLevel.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(BBDamageTypes.BLAZING_HOT)), 1.0F);
+            pEntity.hurt(new net.minecraft.world.damagesource.DamageSource(pLevel.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(BBDamageTypes.BLAZING_HOT)), 1.0F);
         }
     }
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
         if (pEntity instanceof LivingEntity) {
-            if (pLevel instanceof ServerLevel server) pEntity.hurtServer(server, new net.minecraft.world.damagesource.DamageSource(pLevel.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(BBDamageTypes.BLAZING_HOT)), 1.0F);
+            pEntity.hurt(new net.minecraft.world.damagesource.DamageSource(pLevel.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(BBDamageTypes.BLAZING_HOT)), 1.0F);
         }
         super.stepOn(pLevel, pPos, pState, pEntity);
     }
 
-    public BlockState updateShape(BlockState pState, LevelReader pLevel, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pPos, Direction pDirection, BlockPos pNeighborPos, BlockState pNeighborState, RandomSource random) {
+    public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos) {
         if (!pState.canSurvive(pLevel, pPos))
-            ticks.scheduleTick(pPos, this, 1);
+            pLevel.scheduleTick(pPos, this, 1);
         if (pDirection == Direction.UP && pNeighborState.is(BBBlocks.BLAZING_BAMBOO)
                 && (Integer) pNeighborState.getValue((Property) AGE)
                 > ((Integer)pState.getValue((Property)AGE)).intValue())
-            ((LevelAccessor)pLevel).setBlock(pPos, pState.cycle((Property)AGE), 2);
-        return super.updateShape(pState, pLevel, ticks, pPos, pDirection, pNeighborPos, pNeighborState, random);
+            pLevel.setBlock(pPos, pState.cycle((Property)AGE), 2);
+        return super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
     }
 
     private boolean isRainingOnThis(ServerLevel pLevel, BlockPos pPos) {

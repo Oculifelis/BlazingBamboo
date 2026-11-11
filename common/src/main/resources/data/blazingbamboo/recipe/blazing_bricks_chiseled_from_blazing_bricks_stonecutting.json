@@ -1,7 +1,9 @@
 {
   "type": "minecraft:stonecutting",
   "count": 1,
-  "ingredient": "blazingbamboo:blazing_bricks",
+  "ingredient": {
+    "item": "blazingbamboo:blazing_bricks"
+  },
   "result": {
     "id": "blazingbamboo:blazing_bricks_chiseled"
   }

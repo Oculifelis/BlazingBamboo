@@ -16,7 +16,7 @@ public class BBRotatedPillarBlock extends RotatedPillarBlock {
 
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
         if (pState.is(BBBlocks.BLAZING_BAMBOO_BUNDLE) && pEntity instanceof LivingEntity) {
-            if (pLevel instanceof net.minecraft.server.level.ServerLevel server) pEntity.hurtServer(server, new net.minecraft.world.damagesource.DamageSource(pLevel.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(BBDamageTypes.BLAZING_HOT)), 2.0F);
+            pEntity.hurt(new net.minecraft.world.damagesource.DamageSource(pLevel.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(BBDamageTypes.BLAZING_HOT)), 2.0F);
         }
         super.stepOn(pLevel, pPos, pState, pEntity);
     }

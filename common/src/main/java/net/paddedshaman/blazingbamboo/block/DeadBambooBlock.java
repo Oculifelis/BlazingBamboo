@@ -17,19 +17,19 @@ public class DeadBambooBlock extends BlazingBambooBlock {
     }
 
     @Override
-    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {}
+    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {}
     @Override
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {}
 
     @Override
-    public BlockState updateShape(BlockState pState, LevelReader pLevel, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pPos, Direction pDirection, BlockPos pNeighborPos, BlockState pNeighborState, RandomSource random) {
+    public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos) {
         if (!pState.canSurvive(pLevel, pPos))
-            ticks.scheduleTick(pPos, this, 1);
+            pLevel.scheduleTick(pPos, this, 1);
         if (pDirection == Direction.UP && pNeighborState.is(BBBlocks.DEAD_BAMBOO)
                 && (Integer) pNeighborState.getValue((Property) AGE)
                 > ((Integer)pState.getValue((Property)AGE)).intValue())
-            ((LevelAccessor)pLevel).setBlock(pPos, pState.cycle((Property)AGE), 2);
-        return super.updateShape(pState, pLevel, ticks, pPos, pDirection, pNeighborPos, pNeighborState, random);
+            pLevel.setBlock(pPos, pState.cycle((Property)AGE), 2);
+        return super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
     }
 
     @Override

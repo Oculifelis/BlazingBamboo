@@ -3,7 +3,7 @@ package net.paddedshaman.blazingbamboo.item;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.paddedshaman.blazingbamboo.BlazingBamboo;
@@ -11,7 +11,7 @@ import net.paddedshaman.blazingbamboo.block.BBBlocks;
 
 public class BBCreativeModeTabs {
     public static final CreativeModeTab BLAZING_BAMBOO = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-            Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_tab"),
+            ResourceLocation.fromNamespaceAndPath(BlazingBamboo.MOD_ID, "blazing_bamboo_tab"),
             CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0).title(Component.translatable("creativetab.blazing_bamboo_tab"))
                     .icon(() -> new ItemStack(BBItems.BLAZING_BAMBOO_ITEM)).displayItems((itemDisplayParameters, output) -> {
 

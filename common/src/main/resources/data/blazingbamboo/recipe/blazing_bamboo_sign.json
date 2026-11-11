@@ -3,10 +3,16 @@
   "category": "misc",
   "group": "wooden_sign",
   "key": {
-    "#": "blazingbamboo:blazing_bamboo_planks",
+    "#": {
+      "item": "blazingbamboo:blazing_bamboo_planks"
+    },
     "X": [
-      "minecraft:stick",
-      "minecraft:blaze_rod"
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "minecraft:blaze_rod"
+      }
     ]
   },
   "pattern": [

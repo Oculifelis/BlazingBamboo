@@ -3,7 +3,9 @@
   "category": "redstone",
   "group": "wooden_door",
   "key": {
-    "#": "blazingbamboo:blazing_bamboo_planks"
+    "#": {
+      "item": "blazingbamboo:blazing_bamboo_planks"
+    }
   },
   "pattern": [
     "##",

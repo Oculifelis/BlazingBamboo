@@ -11,21 +11,21 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.paddedshaman.blazingbamboo.worldgen.BambooPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.paddedshaman.blazingbamboo.block.BBBlocks;
 
-public class BlazingBambooFeature extends Feature<BambooPatchConfiguration> {
+public class BlazingBambooFeature extends Feature<RandomPatchConfiguration> {
     private static final BlockState BAMBOO_TRUNK = BBBlocks.BLAZING_BAMBOO.defaultBlockState().setValue(BambooStalkBlock.AGE, 1).setValue(BambooStalkBlock.LEAVES, BambooLeaves.NONE).setValue(BambooStalkBlock.STAGE, 0);
     private static final BlockState BAMBOO_FINAL_LARGE = BAMBOO_TRUNK.setValue(BambooStalkBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooStalkBlock.STAGE, 1);
     private static final BlockState BAMBOO_TOP_LARGE = BAMBOO_TRUNK.setValue(BambooStalkBlock.LEAVES, BambooLeaves.LARGE);
     private static final BlockState BAMBOO_TOP_SMALL = BAMBOO_TRUNK.setValue(BambooStalkBlock.LEAVES, BambooLeaves.SMALL);
 
-    public BlazingBambooFeature(Codec<BambooPatchConfiguration> pCodec) {
+    public BlazingBambooFeature(Codec<RandomPatchConfiguration> pCodec) {
         super(pCodec);
     }
 
-    public boolean place(FeaturePlaceContext<BambooPatchConfiguration> context) {
-        BambooPatchConfiguration config = context.config();
+    public boolean place(FeaturePlaceContext<RandomPatchConfiguration> context) {
+        RandomPatchConfiguration config = context.config();
         RandomSource randomOffset = context.random();
         int xzConfig = config.xzSpread() + 1;
         int yConfig = config.ySpread() + 1;

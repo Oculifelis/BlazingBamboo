@@ -35,22 +35,22 @@ public class BlazingBambooSapling extends BambooSaplingBlock {
         return pLevel.getBlockState(pPos.below()).is(BBTags.Blocks.BLAZING_BAMBOO_PLANTABLE_ON);
     }
 
-    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
+    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
         if (pEntity instanceof LivingEntity) {
-            if (pLevel instanceof ServerLevel server) pEntity.hurtServer(server, new net.minecraft.world.damagesource.DamageSource(pLevel.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(BBDamageTypes.BLAZING_HOT)), 1.0F);
+            pEntity.hurt(new net.minecraft.world.damagesource.DamageSource(pLevel.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(BBDamageTypes.BLAZING_HOT)), 1.0F);
         }
     }
 
-    public BlockState updateShape(BlockState pState, LevelReader pLevel, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pCurrentPos, Direction pFacing, BlockPos pFacingPos, BlockState pFacingState, RandomSource random) {
+    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         if (!pState.canSurvive(pLevel, pCurrentPos))
             return Blocks.AIR.defaultBlockState();
         if (pFacing == Direction.UP && pFacingState.is(BBBlocks.BLAZING_BAMBOO))
-            ((LevelAccessor)pLevel).setBlock(pCurrentPos, BBBlocks.BLAZING_BAMBOO.defaultBlockState(), 2);
-        return super.updateShape(pState, pLevel, ticks, pCurrentPos, pFacing, pFacingPos, pFacingState, random);
+            pLevel.setBlock(pCurrentPos, BBBlocks.BLAZING_BAMBOO.defaultBlockState(), 2);
+        return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
     }
 
     @NotNull
-    public ItemStack getCloneItemStack(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean includeData) {
+    public ItemStack getCloneItemStack(LevelReader pLevel, BlockPos pPos, BlockState pState) {
         return new ItemStack(BBItems.BLAZING_BAMBOO_ITEM);
     }
 

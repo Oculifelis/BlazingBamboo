@@ -22,5 +22,5 @@ plugins {
 
 rootProject.name = 'blazingbamboo'
 include('common')
-include('fabric')
+
 include('neoforge')

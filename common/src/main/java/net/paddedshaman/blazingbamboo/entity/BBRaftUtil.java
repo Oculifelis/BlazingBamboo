@@ -1,12 +1,22 @@
 package net.paddedshaman.blazingbamboo.entity;
+
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.vehicle.boat.AbstractBoat;
-import net.paddedshaman.blazingbamboo.mixin.BoatAccess;
+import net.minecraft.world.entity.vehicle.Boat;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class BBRaftUtil {
- public static boolean isRaft(Object entity) { return entity instanceof BBRaftEntity || entity instanceof BBChestRaftEntity; }
- public static boolean isImmune(Entity entity) {
-  if (!isRaft(entity.getVehicle())) return false;
-  AbstractBoat.Status status=((BoatAccess)entity.getVehicle()).blazingbamboo$status();
-  return status!=AbstractBoat.Status.UNDER_WATER && status!=AbstractBoat.Status.UNDER_FLOWING_WATER;
- }
+    private static final List<Boat.Status> DAMAGE = Arrays.asList(Boat.Status.UNDER_WATER, Boat.Status.UNDER_FLOWING_WATER);
+
+    public static boolean isImmune(Entity entity) {
+        if (entity.isPassenger()) {
+            if (entity.getVehicle() instanceof BBRaftEntity boat) {
+                return !DAMAGE.contains(boat.getStatus());
+            } else if (entity.getVehicle() instanceof BBChestRaftEntity boat) {
+                return !DAMAGE.contains(boat.getStatus());
+            }
+        }
+        return false;
+    }
 }

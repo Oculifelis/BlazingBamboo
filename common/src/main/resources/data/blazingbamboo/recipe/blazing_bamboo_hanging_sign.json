@@ -3,8 +3,12 @@
   "category": "misc",
   "group": "hanging_sign",
   "key": {
-    "#": "blazingbamboo:stripped_blazing_bamboo_bundle",
-    "X": "minecraft:chain"
+    "#": {
+      "item": "blazingbamboo:stripped_blazing_bamboo_bundle"
+    },
+    "X": {
+      "item": "minecraft:chain"
+    }
   },
   "pattern": [
     "X X",
