@@ -13,7 +13,7 @@ public final class ClientCheck {
   if(done)return;
   try {
    mc.options.pauseOnLostFocus=false;mc.options.getSoundSourceOptionInstance(SoundSource.MASTER).set(0.0);
-   mc.options.framerateLimit().set(20);mc.options.renderDistance().set(3);mc.options.simulationDistance().set(3);
+   mc.options.framerateLimit().set(20);mc.options.renderDistance().set(3);mc.options.simulationDistance().set(5);
    if(mc.level==null || mc.player==null) {
     if(!creating && mc.getOverlay()==null && mc.screen instanceof TitleScreen title) {
      creating=true;
