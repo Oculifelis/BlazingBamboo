@@ -29,6 +29,8 @@ public final class PortChecks {
   boolean hasFeature=false;for(var step:crimson.getGenerationSettings().features())for(var placed:step)if(placed.is(featureKey))hasFeature=true;
   check(hasFeature,"bamboo feature present in crimson forest");
   check(level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.CONFIGURED_FEATURE).getOrThrow(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.CONFIGURED_FEATURE,net.paddedshaman.blazingbamboo.BlazingBamboo.id("blazing_bamboo")))!=null,"bamboo configuration loads");
+  check(fuels.fuelItems().contains(BBItems.BLAZING_BAMBOO_ITEM)&&fuels.fuelItems().contains(BBItems.BLAZING_BAMBOO_BUNDLE),"both bamboo fuels appear in fuel listings");
+  check(!fuels.fuelItems().contains(BBBlocks.BLAZING_BAMBOO_PLANKS.asItem())&&!fuels.fuelItems().contains(BBBlocks.BLAZING_BAMBOO_SLAB.asItem()),"disabled fuels absent from fuel listings");
   BlockPos base=new BlockPos(0,100,0);level.setBlockAndUpdate(base,Blocks.CRIMSON_NYLIUM.defaultBlockState());
   level.setBlockAndUpdate(base.above(),BBBlocks.BLAZING_BAMBOO_SAPLING.defaultBlockState());
   level.setBlockAndUpdate(base.east(),Blocks.WATER.defaultBlockState());
