@@ -27,11 +27,11 @@ public final class PortChecks {
   BlockPos base=new BlockPos(0,100,0);level.setBlockAndUpdate(base,Blocks.CRIMSON_NYLIUM.defaultBlockState());
   level.setBlockAndUpdate(base.above(),BBBlocks.BLAZING_BAMBOO_SAPLING.defaultBlockState());
   level.setBlockAndUpdate(base.east(),Blocks.WATER.defaultBlockState());
-  ((BlazingBambooSapling)BBBlocks.BLAZING_BAMBOO_SAPLING).randomTick(BBBlocks.BLAZING_BAMBOO_SAPLING.defaultBlockState(),level,base.above(),level.random);
+  ((BlazingBambooSapling)BBBlocks.BLAZING_BAMBOO_SAPLING).randomTick(BBBlocks.BLAZING_BAMBOO_SAPLING.defaultBlockState(),level,base.above(),level.getRandom());
   check(level.getBlockState(base.above()).is(BBBlocks.DEAD_BAMBOO_SAPLING),"sapling dies beside water");
   level.setBlockAndUpdate(base.above(),BBBlocks.BLAZING_BAMBOO.defaultBlockState());
   level.setBlockAndUpdate(base.above(2),BBBlocks.BLAZING_BAMBOO.defaultBlockState());
-  ((BlazingBambooBlock)BBBlocks.BLAZING_BAMBOO).randomTick(level.getBlockState(base.above()),level,base.above(),level.random);
+  ((BlazingBambooBlock)BBBlocks.BLAZING_BAMBOO).randomTick(level.getBlockState(base.above()),level,base.above(),level.getRandom());
   check(level.getBlockState(base.above()).is(BBBlocks.DEAD_BAMBOO)&&level.getBlockState(base.above(2)).is(BBBlocks.DEAD_BAMBOO),"whole stalk extinguishes");
   check(!((BlazingBambooBlock)BBBlocks.DEAD_BAMBOO).isValidBonemealTarget(level,base.above(),level.getBlockState(base.above())),"dead bamboo cannot grow");
   var raft=BBEntities.BB_RAFT.create(level,EntitySpawnReason.COMMAND);var chest=BBEntities.BB_CHEST_RAFT.create(level,EntitySpawnReason.COMMAND);

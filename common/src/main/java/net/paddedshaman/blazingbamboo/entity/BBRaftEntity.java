@@ -15,5 +15,5 @@ public class BBRaftEntity extends Raft {
  @Override public boolean isOnFire() { return false; }
  @Override protected double rideHeight(EntityDimensions dimensions) { return 0.25; }
  @Override protected boolean canAddPassenger(Entity entity) { return getPassengers().size() < 2 && !isEyeInFluid(FluidTags.LAVA); }
- @Override protected void checkFallDamage(double delta, boolean ground, BlockState state, BlockPos pos) { }
+ @Override protected void checkFallDamage(double delta, boolean ground, BlockState state, BlockPos pos) { ((net.paddedshaman.blazingbamboo.mixin.BoatAccess)this).blazingbamboo$lastYd(getDeltaMovement().y); }
 }
