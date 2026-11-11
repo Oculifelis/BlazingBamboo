@@ -34,7 +34,7 @@ public final class PortChecks {
   ((BlazingBambooBlock)BBBlocks.BLAZING_BAMBOO).randomTick(level.getBlockState(base.above()),level,base.above(),level.getRandom());
   check(level.getBlockState(base.above()).is(BBBlocks.DEAD_BAMBOO)&&level.getBlockState(base.above(2)).is(BBBlocks.DEAD_BAMBOO),"whole stalk extinguishes");
   check(!((BlazingBambooBlock)BBBlocks.DEAD_BAMBOO).isValidBonemealTarget(level,base.above(),level.getBlockState(base.above())),"dead bamboo cannot grow");
-  var raft=BBEntities.BB_RAFT.create(level,MobSpawnType.COMMAND);var chest=BBEntities.BB_CHEST_RAFT.create(level,MobSpawnType.COMMAND);
+  var raft=BBEntities.BB_RAFT.create(level);var chest=BBEntities.BB_CHEST_RAFT.create(level);
   check(raft!=null&&raft.fireImmune()&&chest!=null&&chest.fireImmune(),"both rafts create and resist fire");
   raft.setPos(3,101,0);level.addFreshEntity(raft);chest.setPos(6,101,0);level.addFreshEntity(chest);
   level.setBlockAndUpdate(base.offset(3,0,0),Blocks.LAVA.defaultBlockState());level.setBlockAndUpdate(base.offset(6,0,0),Blocks.LAVA.defaultBlockState());

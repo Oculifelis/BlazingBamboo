@@ -17,7 +17,7 @@ public final class ClientCheck {
    if(mc.level==null || mc.player==null) {
     if(!creating && mc.getOverlay()==null && mc.screen instanceof TitleScreen title) {
      creating=true;
-     LevelSettings settings=new LevelSettings("bbqa",GameType.CREATIVE,net.minecraft.world.Difficulty.NORMAL,true,WorldDataConfiguration.DEFAULT);
+     LevelSettings settings=new LevelSettings("bbqa",GameType.CREATIVE,false,net.minecraft.world.Difficulty.NORMAL,true,new net.minecraft.world.level.GameRules(),WorldDataConfiguration.DEFAULT);
      mc.createWorldOpenFlows().createFreshLevel("bbqa",settings,new WorldOptions(1030015L,false,false),WorldPresets::createFlatWorldDimensions,title);
     } else if(!creating && mc.getOverlay()==null && ++idle>200)mc.setScreen(new TitleScreen());
     return;
