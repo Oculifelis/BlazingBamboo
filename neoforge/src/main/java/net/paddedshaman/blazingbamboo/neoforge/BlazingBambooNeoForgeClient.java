@@ -16,6 +16,7 @@ import net.paddedshaman.blazingbamboo.entity.BBEntities;
   event.registerLayerDefinition(BBRaftRenderer.BLAZING_BAMBOO_RAFT_LAYER,RaftModel::createBodyModel);event.registerLayerDefinition(BBRaftRenderer.BLAZING_BAMBOO_CHEST_RAFT_LAYER,net.minecraft.client.model.ChestRaftModel::createBodyModel);
  }
  static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+  net.minecraft.client.renderer.Sheets.addWoodType(net.paddedshaman.blazingbamboo.block.BBBlocks.BLAZING_BAMBOO_TYPE);
   event.registerEntityRenderer(BBEntities.BB_RAFT,c->new BBRaftRenderer(c,false));event.registerEntityRenderer(BBEntities.BB_CHEST_RAFT,c->new BBRaftRenderer(c,true));
   event.registerBlockEntityRenderer(BBBlockEntities.MOD_SIGN,SignRenderer::new);event.registerBlockEntityRenderer(BBBlockEntities.MOD_HANGING_SIGN,HangingSignRenderer::new);
  }
