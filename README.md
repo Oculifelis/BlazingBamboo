@@ -6,6 +6,6 @@ Fiery bamboo from crimson forests, blaze fuel and rods, lava rafts, and wood and
 
 MIT licensed. See LICENSE.txt for the original copyright and terms.
 
-This branch targets Minecraft 26.1.2 on NeoForge and Fabric using a shared MultiLoader source tree. Port in progress.
+This branch targets Minecraft 26.3 on NeoForge and Fabric using a shared MultiLoader source tree. Port in progress.
 
 Optional Thaumaturge support adds aspects and crucible fuel values only.
