@@ -40,5 +40,6 @@ public final class PortChecks {
   level.setBlockAndUpdate(base.offset(3,0,0),Blocks.LAVA.defaultBlockState());level.setBlockAndUpdate(base.offset(6,0,0),Blocks.LAVA.defaultBlockState());
   for(var type:new net.minecraft.world.level.block.entity.BlockEntityType<?>[]{net.paddedshaman.blazingbamboo.block.entity.BBBlockEntities.MOD_SIGN,net.paddedshaman.blazingbamboo.block.entity.BBBlockEntities.MOD_HANGING_SIGN})check(type!=null,"sign entity type");
   System.out.println("BBQA MOD JAR "+BBBlocks.class.getProtectionDomain().getCodeSource().getLocation());
+  try { ThaumaturgeChecks.run(level); } catch(Exception e) { throw new IllegalStateException(e); }
  }
 }
