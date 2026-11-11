@@ -16,7 +16,6 @@ import net.paddedshaman.blazingbamboo.client.BBClient;
   event.registerLayerDefinition(BBClient.RAFT,RaftModel::createRaftModel);event.registerLayerDefinition(BBClient.CHEST_RAFT,RaftModel::createChestRaftModel);
  }
  static void renderers(EntityRenderersEvent.RegisterRenderers event) {
-  BBClient.registerSignSprites();
   event.registerEntityRenderer(BBEntities.BB_RAFT,c->new RaftRenderer(c,BBClient.RAFT));event.registerEntityRenderer(BBEntities.BB_CHEST_RAFT,c->new RaftRenderer(c,BBClient.CHEST_RAFT));
   event.registerBlockEntityRenderer(BBBlockEntities.MOD_SIGN,StandingSignRenderer::new);event.registerBlockEntityRenderer(BBBlockEntities.MOD_HANGING_SIGN,HangingSignRenderer::new);
  }
