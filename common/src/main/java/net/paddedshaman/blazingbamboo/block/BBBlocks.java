@@ -125,7 +125,7 @@ public class BBBlocks {
     }
     private static Item registerBlockItem(String name, Block block) {
         return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, name),
-                new BlockItem(block, new Item.Properties().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ITEM, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, name))).fireResistant()));
+                new BlockItem(block, new Item.Properties().useBlockDescriptionPrefix().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ITEM, Identifier.fromNamespaceAndPath(BlazingBamboo.MOD_ID, name))).fireResistant()));
     }
     public static void registerBlocks() {}
 }

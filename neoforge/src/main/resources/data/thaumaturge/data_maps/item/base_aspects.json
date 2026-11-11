@@ -16,76 +16,6 @@
         "amount": 9
       }
     ],
-    "blazingbamboo:stripped_blazing_bamboo_bundle": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_bamboo_planks": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_bamboo_mosaic": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_bamboo_slab": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_bamboo_mosaic_slab": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_bamboo_stairs": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_bamboo_mosaic_stairs": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
     "blazingbamboo:blazing_bamboo_button": [
       {
         "aspect": "thaumaturge:ignis",
@@ -96,7 +26,21 @@
         "amount": 2
       }
     ],
-    "blazingbamboo:blazing_bamboo_pressure_plate": [
+    "blazingbamboo:blazing_bamboo_chest_raft": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 8
+      },
+      {
+        "aspect": "thaumaturge:iter",
+        "amount": 4
+      },
+      {
+        "aspect": "thaumaturge:arbor",
+        "amount": 4
+      }
+    ],
+    "blazingbamboo:blazing_bamboo_door": [
       {
         "aspect": "thaumaturge:ignis",
         "amount": 1
@@ -126,37 +70,67 @@
         "amount": 2
       }
     ],
-    "blazingbamboo:blazing_bamboo_door": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_bamboo_trapdoor": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_bamboo_sign": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:arbor",
-        "amount": 2
-      }
-    ],
     "blazingbamboo:blazing_bamboo_hanging_sign": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:arbor",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_bamboo_item": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 4
+      },
+      {
+        "aspect": "thaumaturge:herba",
+        "amount": 1
+      }
+    ],
+    "blazingbamboo:blazing_bamboo_mosaic": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:arbor",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_bamboo_mosaic_slab": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:arbor",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_bamboo_mosaic_stairs": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:arbor",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_bamboo_planks": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:arbor",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_bamboo_pressure_plate": [
       {
         "aspect": "thaumaturge:ignis",
         "amount": 1
@@ -180,77 +154,43 @@
         "amount": 4
       }
     ],
-    "blazingbamboo:blazing_bamboo_chest_raft": [
+    "blazingbamboo:blazing_bamboo_sign": [
       {
         "aspect": "thaumaturge:ignis",
-        "amount": 8
-      },
-      {
-        "aspect": "thaumaturge:iter",
-        "amount": 4
+        "amount": 1
       },
       {
         "aspect": "thaumaturge:arbor",
-        "amount": 4
-      }
-    ],
-    "blazingbamboo:blazing_stone": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:terra",
         "amount": 2
       }
     ],
-    "blazingbamboo:blazing_stone_slab": [
+    "blazingbamboo:blazing_bamboo_slab": [
       {
         "aspect": "thaumaturge:ignis",
         "amount": 1
       },
       {
-        "aspect": "thaumaturge:terra",
+        "aspect": "thaumaturge:arbor",
         "amount": 2
       }
     ],
-    "blazingbamboo:blazing_stone_stairs": [
+    "blazingbamboo:blazing_bamboo_stairs": [
       {
         "aspect": "thaumaturge:ignis",
         "amount": 1
       },
       {
-        "aspect": "thaumaturge:terra",
+        "aspect": "thaumaturge:arbor",
         "amount": 2
       }
     ],
-    "blazingbamboo:blazing_stone_button": [
+    "blazingbamboo:blazing_bamboo_trapdoor": [
       {
         "aspect": "thaumaturge:ignis",
         "amount": 1
       },
       {
-        "aspect": "thaumaturge:terra",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_stone_pressure_plate": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:terra",
-        "amount": 2
-      }
-    ],
-    "blazingbamboo:blazing_bricks": [
-      {
-        "aspect": "thaumaturge:ignis",
-        "amount": 1
-      },
-      {
-        "aspect": "thaumaturge:terra",
+        "aspect": "thaumaturge:arbor",
         "amount": 2
       }
     ],
@@ -284,6 +224,16 @@
         "amount": 2
       }
     ],
+    "blazingbamboo:blazing_bricks": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:terra",
+        "amount": 2
+      }
+    ],
     "blazingbamboo:blazing_bricks_chiseled": [
       {
         "aspect": "thaumaturge:ignis",
@@ -291,6 +241,66 @@
       },
       {
         "aspect": "thaumaturge:terra",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_stone": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:terra",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_stone_button": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:terra",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_stone_pressure_plate": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:terra",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_stone_slab": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:terra",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:blazing_stone_stairs": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:terra",
+        "amount": 2
+      }
+    ],
+    "blazingbamboo:stripped_blazing_bamboo_bundle": [
+      {
+        "aspect": "thaumaturge:ignis",
+        "amount": 1
+      },
+      {
+        "aspect": "thaumaturge:arbor",
         "amount": 2
       }
     ]
