@@ -5,6 +5,7 @@ license="MIT"
 modId="blazingbamboo"
 version="${version}"
 displayName="Blazing Bamboo (Unofficial)"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/blazing-bamboo-unofficial"
 authors="PaddedShaman, Oculifelis"
 logoFile="assets/blazingbamboo/icon.png"
 description='''Unofficial port of PaddedShaman's Blazing Bamboo. Fiery bamboo, lava rafts and Nether building blocks.'''
