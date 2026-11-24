@@ -3,6 +3,8 @@ package net.paddedshaman.blazingbamboo.qa;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.UUID;
+import com.mojang.authlib.GameProfile;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
@@ -11,6 +13,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
@@ -58,7 +62,11 @@ public final class BambooRuleChecks {
         level.setBlock(pos, bundle, 2);
         ItemStack axe = new ItemStack(Items.IRON_AXE);
         var hit = new BlockHitResult(Vec3.atCenterOf(pos), Direction.UP, pos, false);
-        axe.getItem().useOn(new UseOnContext(level, null, InteractionHand.MAIN_HAND, axe, hit) {});
+        Player player = new Player(level, new GameProfile(UUID.randomUUID(), "BambooCheck")) {
+            @Override public GameType gameMode() { return GameType.SURVIVAL; }
+        };
+        player.setItemInHand(InteractionHand.MAIN_HAND, axe);
+        axe.getItem().useOn(new UseOnContext(player, InteractionHand.MAIN_HAND, hit));
         var stripped = level.getBlockState(pos);
         check(stripped.is(override ? Blocks.STRIPPED_BIRCH_LOG : BBBlocks.STRIPPED_BLAZING_BAMBOO_BUNDLE)
                 && stripped.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.X, "stripped result and axis");
