@@ -63,3 +63,5 @@ tasks.register('exportTestLaunch') {
         }
     }
 }
+
+if (project.hasProperty('portChecks')) apply from: rootProject.file('gradle/port-checks.gradle')

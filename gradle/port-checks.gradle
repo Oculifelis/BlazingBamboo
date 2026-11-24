@@ -1,0 +1,49 @@
+def checks = sourceSets.create('portChecks') {
+    java.srcDir rootProject.file('qa/port/java')
+    java.srcDir rootProject.file("qa/port/${project.name}/java")
+    resources.srcDir rootProject.file('qa/port/resources')
+    resources.srcDir rootProject.file("qa/port/${project.name}/resources")
+    compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
+    runtimeClasspath += sourceSets.main.runtimeClasspath
+}
+checks.java.srcDir rootProject.file('qa/src/main/java')
+checks.java.exclude '**/mixin/**', '**/ClientCheck.java'
+
+def worldDir = file('build/port-gametest')
+def passed = new File(worldDir, 'blazingbamboo_checks.passed')
+if (project.name == 'fabric') {
+    loom.mods {
+        blazingbamboo { sourceSet sourceSets.main }
+        blazingbamboo_checks { sourceSet checks }
+    }
+    loom.runs.create('portGameTest') {
+        server()
+        source(checks)
+        runDir('build/port-gametest')
+        vmArg '-Djava.awt.headless=true'
+        vmArg '-Dfabric-api.gametest'
+    }
+} else {
+    neoForge.addModdingDependenciesTo(checks)
+    def testMod = neoForge.mods.create('blazingbamboo_checks') { sourceSet checks }
+    neoForge.runs.create('portGameTest') {
+        type = 'gameTestServer'
+        gameDirectory = worldDir
+        loadedMods = [neoForge.mods.getByName('blazingbamboo'), testMod]
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'blazingbamboo_checks'
+        systemProperty 'java.awt.headless', 'true'
+    }
+}
+
+tasks.named('runPortGameTest') {
+    dependsOn tasks.named('portChecksClasses')
+    doFirst {
+        worldDir.mkdirs()
+        java.nio.file.Files.deleteIfExists(passed.toPath())
+    }
+    doLast {
+        if (!passed.isFile() || passed.text != 'bamboo_behaviour') {
+            throw new GradleException("The required Blazing Bamboo server check did not finish")
+        }
+    }
+}

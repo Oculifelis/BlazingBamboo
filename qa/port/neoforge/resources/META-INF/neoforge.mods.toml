@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="blazingbamboo_checks"
+version="1"
+displayName="Blazing Bamboo server checks"
+[[dependencies.blazingbamboo_checks]]
+modId="blazingbamboo"
+type="required"
+versionRange="*"
+ordering="AFTER"
+side="BOTH"
