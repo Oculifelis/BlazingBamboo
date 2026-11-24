@@ -65,7 +65,7 @@ public final class PortChecks {
   try { ThaumaturgeChecks.run(level); } catch(Exception e) { throw new IllegalStateException(e); }
  }
 
- private static int fuel(ServerLevel level,net.minecraft.world.level.block.Block block,ItemStack item) {
+ static int fuel(ServerLevel level,net.minecraft.world.level.block.Block block,ItemStack item) {
   BlockPos pos=new BlockPos(20,100,0);level.setBlockAndUpdate(pos,block.defaultBlockState());
   try {
    var method=net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity.class.getDeclaredMethod("getBurnDuration",ServerLevel.class,ItemStack.class);

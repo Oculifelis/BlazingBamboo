@@ -1,0 +1,49 @@
+// Two separate worlds exercise both the normal pack and a higher-priority replacement.
+['defaults', 'override'].each { mode ->
+    def runName = "rule" + mode.capitalize()
+    def runDirPath = "build/rule-tests/" + mode
+    def testDir = file(runDirPath)
+    if (project.name == 'neoforge') {
+        neoForge.runs.create(runName) {
+            server()
+            gameDirectory = testDir
+            programArgument '--nogui'
+            systemProperty 'blazingbamboo.ruleTest', mode
+            jvmArgument '-Djava.awt.headless=true'
+        }
+    } else {
+        loom.runs.create(runName) {
+            server()
+            runDir(runDirPath)
+            programArg 'nogui'
+            vmArg("-Dblazingbamboo.ruleTest=" + mode)
+            vmArg '-Djava.awt.headless=true'
+        }
+    }
+    def checks = project(':common').tasks.named('qaJar')
+    tasks.named('run' + runName.capitalize()) {
+        dependsOn checks
+        doFirst {
+            testDir.mkdirs()
+            java.nio.file.Files.deleteIfExists(new File(testDir, 'bamboo-rules.passed').toPath())
+            new File(testDir, 'eula.txt').text = 'eula=true\n'
+            new File(testDir, 'server.properties').text = 'server-ip=127.0.0.1\nserver-port=0\nonline-mode=false\nlevel-seed=0\ngenerate-structures=false\n'
+            project.copy {
+                from checks.get().archiveFile
+                into new File(testDir, 'mods')
+            }
+            if (mode == 'override') {
+                project.copy {
+                    from rootProject.file('qa/datapacks/rule_override')
+                    into new File(testDir, 'world/datapacks/rule_override')
+                }
+            }
+        }
+        doLast {
+            def marker = new File(testDir, 'bamboo-rules.passed')
+            if (!marker.isFile() || marker.text != mode) {
+                throw new GradleException("Bamboo rule checks failed for " + project.name + " " + mode)
+            }
+        }
+    }
+}

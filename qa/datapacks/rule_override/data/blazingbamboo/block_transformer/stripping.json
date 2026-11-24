@@ -1,0 +1,26 @@
+[
+  {
+    "block_state_provider": {
+      "type": "minecraft:rule_based",
+      "rules": [
+        {
+          "if_true": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "blazingbamboo:blazing_bamboo_bundle"
+          },
+          "then": {
+            "type": "minecraft:copy_properties",
+            "source": {
+              "id": "minecraft:stripped_birch_log",
+              "properties": {
+                "axis": "y"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "item_damage_per_use": 1,
+    "sound": "minecraft:item.axe.strip"
+  }
+]
