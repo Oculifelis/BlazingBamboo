@@ -13,7 +13,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.BambooStalkBlock;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BambooLeaves;
@@ -109,7 +108,7 @@ public class BlazingBambooBlock extends BambooStalkBlock {
             mutablePos.setWithOffset(pPos, row[0], 0, row[1]);
             mutableState = pLevel.getBlockState(mutablePos);
             mutableStateAbove = pLevel.getBlockState(mutablePos.above());
-            if (mutableStateAbove.is(Blocks.WATER) || mutableState.is(Blocks.WATER)) { return true; }
+            if (mutableStateAbove.is(BBTags.Blocks.EXTINGUISHES_BAMBOO) || mutableState.is(BBTags.Blocks.EXTINGUISHES_BAMBOO)) { return true; }
             if (mutableStateAbove.hasProperty(BlockStateProperties.WATERLOGGED)) {
                 if (mutableStateAbove.getValue(BlockStateProperties.WATERLOGGED)) { return true; }
             }
@@ -121,7 +120,7 @@ public class BlazingBambooBlock extends BambooStalkBlock {
     }
     private boolean isFrozen(ServerLevel pLevel, BlockPos pPos) {
         BlockState iceCheck = pLevel.getBlockState(pPos.below());
-        return iceCheck.is(Blocks.ICE) || iceCheck.is(Blocks.PACKED_ICE) || iceCheck.is(Blocks.BLUE_ICE);
+        return iceCheck.is(BBTags.Blocks.FREEZES_GROWTH);
     }
 
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
