@@ -3,8 +3,7 @@
   "package": "net.paddedshaman.blazingbamboo.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "EntityMixin",
-    "AxeMixin"
+    "EntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

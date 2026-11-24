@@ -1,0 +1,16 @@
+{
+  "values": {
+    "blazingbamboo:blazing_bamboo_item": {
+      "burn_time": 325
+    },
+    "blazingbamboo:blazing_bamboo_planks": {
+      "burn_time": 99
+    },
+    "minecraft:flint": {
+      "burn_time": 77
+    }
+  },
+  "remove": [
+    "blazingbamboo:blazing_bamboo_bundle"
+  ]
+}

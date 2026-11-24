@@ -1,0 +1,14 @@
+{
+  "values": {
+    "blazingbamboo:blazing_bamboo_item": {
+      "burn_time": 800
+    },
+    "blazingbamboo:blazing_bamboo_bundle": {
+      "burn_time": 8000
+    }
+  },
+  "remove": [
+    "blazingbamboo:blazing_bamboo_planks",
+    "blazingbamboo:blazing_bamboo_slab"
+  ]
+}
