@@ -6,7 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.BambooStalkBlock;
-import net.minecraft.world.level.block.Blocks;
+import net.paddedshaman.blazingbamboo.util.BBTags;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -41,7 +41,7 @@ public class BlazingBambooFeature extends Feature<BambooPatchConfiguration> {
                     randomOffset.nextInt(xzConfig) - randomOffset.nextInt(xzConfig));
             if (level.isEmptyBlock(mutablePos)) {
                 if (BBBlocks.BLAZING_BAMBOO.defaultBlockState().canSurvive(level, mutablePos)
-                        && level.getBlockState(mutablePos.below()).is(Blocks.CRIMSON_NYLIUM)) {
+                        && level.getBlockState(mutablePos.below()).is(BBTags.Blocks.PATCH_SOIL)) {
                     int height = randomHeight.nextInt(8) + 5;
 
                     for (int j = 0; j < height && level.isEmptyBlock(mutablePos); ++j) {

@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "net.paddedshaman.blazingbamboo.fabric.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "AxeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

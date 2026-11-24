@@ -82,7 +82,7 @@ public class BlazingBambooSapling extends BambooSaplingBlock {
             mutablePos.setWithOffset(pPos, row[0], 0, row[1]);
             mutableState = pLevel.getBlockState(mutablePos);
             mutableStateAbove = pLevel.getBlockState(mutablePos.above());
-            if (mutableState.is(Blocks.WATER) || mutableStateAbove.is(Blocks.WATER)) { return true; }
+            if (mutableState.is(BBTags.Blocks.EXTINGUISHES_BAMBOO) || mutableStateAbove.is(BBTags.Blocks.EXTINGUISHES_BAMBOO)) { return true; }
             if (mutableState.hasProperty(BlockStateProperties.WATERLOGGED)) {
                 if (mutableState.getValue(BlockStateProperties.WATERLOGGED)) { return true; }
             }
@@ -94,7 +94,7 @@ public class BlazingBambooSapling extends BambooSaplingBlock {
     }
     private boolean isFrozen(ServerLevel pLevel, BlockPos pPos) {
         BlockState iceCheck = pLevel.getBlockState(pPos.below());
-        return iceCheck.is(Blocks.ICE) || iceCheck.is(Blocks.PACKED_ICE) || iceCheck.is(Blocks.BLUE_ICE);
+        return iceCheck.is(BBTags.Blocks.FREEZES_GROWTH);
     }
 
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {

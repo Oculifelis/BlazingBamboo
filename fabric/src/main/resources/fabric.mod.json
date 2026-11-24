@@ -24,7 +24,8 @@
     ]
   },
   "mixins": [
-    "blazingbamboo.mixins.json"
+    "blazingbamboo.mixins.json",
+    "blazingbamboo.fabric.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
