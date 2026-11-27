@@ -74,3 +74,4 @@ tasks.register('exportTestLaunch') {
 if (project.hasProperty('bambooRuleTest')) {
     apply from: rootProject.file('gradle/rule-tests.gradle')
 }
+if (project.hasProperty('portChecks')) apply from: rootProject.file('gradle/port-checks.gradle')

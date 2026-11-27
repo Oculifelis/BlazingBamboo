@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:function",
+  "environment": "minecraft:default",
+  "function": "blazingbamboo_checks:bamboo_behaviour",
+  "max_ticks": 100,
+  "required": true,
+  "setup_ticks": 1,
+  "structure": "minecraft:empty"
+}

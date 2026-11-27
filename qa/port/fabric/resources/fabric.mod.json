@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "blazingbamboo_checks",
+  "version": "1.0.0",
+  "name": "Blazing Bamboo server checks",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "net.paddedshaman.blazingbamboo.qa.FabricTests"
+    ]
+  },
+  "depends": {
+    "blazingbamboo": "*"
+  }
+}
